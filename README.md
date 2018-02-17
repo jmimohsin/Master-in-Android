@@ -1,6 +1,6 @@
 # Master-in-Android
 
-Learn android with Kotlin and Java tutorials
+Learn android with Kotlin tutorials
 
 Run Kotlin code and convert Java to Kotlin.
 
