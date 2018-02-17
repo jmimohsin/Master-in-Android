@@ -1,6 +1,6 @@
 # Master-in-Android
 
-Master in Android application has android with Kotlin tutorials and some advance tools.
+Master in Android application has Android with Kotlin tutorials and some advance tools.
 
 You can run Kotlin code and convert Java to Kotlin code via this application. There are many tutorials and quizes to learn Android programming. 
 
