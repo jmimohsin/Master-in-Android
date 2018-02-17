@@ -1,4 +1,4 @@
-# Master-in-Android
+# Master in Android
 
 Master in Android application has Android with Kotlin tutorials and some advance tools.
 
