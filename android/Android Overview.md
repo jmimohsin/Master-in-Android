@@ -1,6 +1,6 @@
 # Android Overview
 
-### What is Android?
+**What is Android?**
 
 Android is an open source and Linux-based Operating System for mobile devices such as smartphones and tablet computers. Android was developed by the Open Handset Alliance, led by Google, and other companies.
 
@@ -12,7 +12,7 @@ On June 27, 2012, at the Google I/O conference, Google announced the next Androi
 
 The source code for Android is available under free and open source software licenses. Google publishes most of the code under the Apache License version 2.0 and the rest, Linux kernel changes, under the GNU General Public License version 2.
 
-### Features of Android
+**Features of Android**
 
 Android is a powerful operating system competing with Apple 4GS and supports great features. Few of them are listed below:
 
@@ -32,7 +32,7 @@ GCM | Google Cloud Messaging (GCM) is a service that lets developers send short 
 Wi-Fi Direct | A technology that lets apps discover and pair directly, over a high-bandwidth peer-to-peer connection.
 Android Beam | A popular NFC-based technology that lets users instantly share, just by touching two NFC-enabled phones together.
 
-### Android Applications
+**Android Applications**
 
 Android applications are usually developed in the Java language using the Android Software Development Kit.
 
