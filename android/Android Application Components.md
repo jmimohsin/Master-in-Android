@@ -11,7 +11,7 @@ Services | They handle background processing associated with an application.
 Broadcast Receivers | They handle communication between Android OS and applications.
 Content Providers | They handle data and database management issues.
 
-### Activities
+**Activities**
 
 An activity represents a single screen with a user interface. For example, an email application might have one activity that shows a list of new emails, another activity to compose an email, and another activity for reading emails. If an application has more than one activity, then one of them should be marked as the activity that is presented when the application is launched.
 
@@ -23,7 +23,7 @@ class MainActivity extends Activity {
 }
 ```
 
-### Services
+**Services**
 
 A service is a component that runs in the background to perform long-running operations. For example, a service might play music in the background while the user is in a different application, or it might fetch data over the network without blocking user interaction with an activity.
 
@@ -35,7 +35,7 @@ class MyService extends Service {
 }
 ```
 
-### Broadcast Receivers
+**Broadcast Receivers**
 
 Broadcast Receivers simply respond to broadcast messages from other applications or from the system. For example, applications can also initiate broadcasts to let other applications know that some data has been downloaded to the device and is available for them to use, so this is broadcast receiver who will intercept this communication and will initiate appropriate action.
 
@@ -47,7 +47,7 @@ public class MyReceiver extends  BroadcastReceiver {
 }
 ```
 
-### Content Providers
+**Content Providers**
 
 A content provider component supplies data from one application to others on request. Such requests are handled by the methods of the ContentResolver class. The data may be stored in the file system, the database or somewhere else entirely.
 
@@ -60,7 +60,7 @@ public class MyReceiver extends BroadcastReceiver {
 ```
 We will go through these tags in detail while covering application components in individual chapters.
 
-### Additional Components
+**Additional Components**
 
 There are additional components which will be used in the construction of above mentioned entities, their logic, and wiring between them. These components are:
 
