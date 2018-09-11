@@ -12,6 +12,7 @@ There is one additional steps in case you are going to implement your custom int
 **Creating the Broadcast Receiver**
 
 A broadcast receiver is implemented as a subclass of **BroadcastReceiver** class and overriding the onReceive() method where each message is received as a **Intent** object parameter.
+
 ```java
 public class MyReceiver extends BroadcastReceiver {
  
@@ -22,10 +23,12 @@ public class MyReceiver extends BroadcastReceiver {
  
 }
 ```
+
 **Registering Broadcast Receiver**
 
 An application listens for specific broadcast intents by registering a broadcast receiver in _AndroidManifest.xml_ file. Consider we are going to register _MyReceiver_ for system generated event ACTION\_BOOT\_COMPLETED which is fired by the system once the Android system has completed the boot process.
-```java
+
+```xml
 <application
    android:icon="@drawable/ic_launcher"
    android:label="@string/app_name"
@@ -39,6 +42,7 @@ An application listens for specific broadcast intents by registering a broadcast
    </receiver>
 </application>
 ```
+
 Now whenever your Android device gets booted, it will be intercepted by BroadcastReceiver _MyReceiver_ and implemented logic inside _onReceive() will be executed.
 
 There are several system generated events defined as final static fields in the **Intent** class. The following table lists a few important system events.
@@ -60,6 +64,7 @@ There are several system generated events defined as final static fields in the 
 ### Broadcasting Custom Intents
 
 If you want your application itself should generate and send custom intents then you will have to create and send those intents by using the sendBroadcast() method inside your activity class. If you use the sendStickyBroadcast(Intent) method, the Intent is **sticky**, meaning the Intent you are sending stays around after the broadcast is complete.
+
 ```java
 public void broadcastIntent(View view)
 {
@@ -68,7 +73,9 @@ public void broadcastIntent(View view)
    sendBroadcast(intent);
 }
 ```
+
 This intent _com.tutorialspoint.CUSTOM_INTENT_ can also be regsitered in similar way as we have regsitered system generated intent.
+
 ```xml
 <application
    android:icon="@drawable/ic_launcher"
@@ -83,6 +90,7 @@ This intent _com.tutorialspoint.CUSTOM_INTENT_ can also be regsitered in similar
    </receiver>
 </application>
 ```
+
 **Example**
 
 This example will explain you how to create _BroadcastReceiver_ to intercept custom intent. Once you are familiar with custom intent, then you can program your application to intercept system generated intents. So let's follow the following steps to modify the Android application we created in Hello World Example chapter:
@@ -98,8 +106,8 @@ This example will explain you how to create _BroadcastReceiver_ to intercept cus
 | 7 | Run the application to launch Android emulator and verify the result of the changes done in the aplication.      |    
 
 
-
 Following is the content of the modified main activity file **src/com.example.helloworld/MainActivity.java**. This file can include each of the fundamental lifecycle methods. We have added broadcastIntent() method to broadcast a custom intent.
+
 ```java
 package com.example.helloworld;
  
@@ -130,7 +138,9 @@ public class MainActivity extends Activity {
    }
 }
 ```
+
 Following will the modified content of _AndroidManifest.xml_ file. Here we have added <service.../> tag to include our service:
+
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
    package="com.example.helloworld"
@@ -145,7 +155,7 @@ Following will the modified content of _AndroidManifest.xml_ file. Here we have 
        android:theme="@style/AppTheme" >
        <activity
            android:name=".MainActivity"
-           android:label="@string/title\_activity\_main" >
+           android:label="@string/title_activity_main" >
            <intent-filter>
                <action android:name="android.intent.action.MAIN" />
                <category android:name="android.intent.category.LAUNCHER"/>
@@ -160,7 +170,9 @@ Following will the modified content of _AndroidManifest.xml_ file. Here we have 
    </application>
 </manifest>
 ```
+
 Following will be the content of **res/layout/activity_main.xml** file to include a button to broadcast our custom intent:
+
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
    android:layout_width="fill_parent"
@@ -174,16 +186,19 @@ Following will be the content of **res/layout/activity_main.xml** file to includ
    android:onClick="broadcastIntent"/>
 </LinearLayout>
 ```
+
 Following will be the content of **res/values/strings.xml** to define two new constants:
+
 ```xml
 <resources>
     <string name="app_name">HelloWorld</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title\_activity\_main">MainActivity</string>
+    <string name="title_activity_main">MainActivity</string>
     <string name="broadcast_intent">Broadcast Intent</string>
 </resources>
 ```
+
 Let's try to run our modified **Hello World!** application we just modified. I assume you had created your **AVD** while doing environment setup. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Eclipse installs the app on your AVD and starts it and if everything is fine with your setup and application, it will display following Emulator window:
 
 Now to broadcast our custom intent, let's click on **Brodcast** **Intent** button, this will broadcast our custom intent _"com.tutorialspoint.CUSTOM_INTENT"_ which will be intercepted by our registered BroadcastReceiver ie. MyReceiver and as per our implemented logic a toast will appear on the bottom of the the simulator as follows:
