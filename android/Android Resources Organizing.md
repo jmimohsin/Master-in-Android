@@ -23,49 +23,16 @@ MyProject/
 
 The **res/** directory contains all the resources in various subdirectories. Here we have an image resource, two layout resources, and a string resource file. Following table gives a detail about the resource directories supported inside project res/ directory.
 
-**Directory**
-
-**Resource Type**
-
-anim/
-
-XML files that define property animations. They are saved in res/anim/ folder and accessed from the **R.anim** class.
-
-color/
-
-XML files that define a state list of colors. They are saved in res/color/ and accessed from the **R.color** class.
-
-drawable/
-
-Image files like .png, .jpg, .gif or XML files that are compiled into bitmaps, state lists, shapes, animation drawables. They are saved in res/drawable/ and accessed from the **R.drawable** class.
-
-layout/
-
-XML files that define a user interface layout. They are saved in res/layout/ and accessed from the **R.layout** class.
-
-menu/
-
-XML files that define application menus, such as an Options Menu, Context Menu, or Sub Menu. They are saved in res/menu/ and accessed from the **R.menu** class.
-
-raw/
-
-Arbitrary files to save in their raw form. You need to call *Resources.openRawResource()* with the resource ID, which is *R.raw.filename* to open such raw files.
-
-values/
-
-XML files that contain simple values, such as strings, integers, and colors. For example, here are some filename conventions for resources you can create in this directory:
-
-*   arrays.xml for resource arrays, and accessed from the **R.array** class.
-*   integers.xml for resource integers, and accessed from the **R.integer** class.
-*   bools.xml for resource boolean, and accessed from the **R.bool** class.
-*   colors.xml for color values, and accessed from the **R.color** class.
-*   dimens.xml for dimension values, and accessed from the **R.dimen** class.
-*   strings.xml for string values, and accessed from the **R.string** class.
-*   styles.xml for styles, and accessed from the **R.style** class.
-
-xml/
-
-Arbitrary XML files that can be read at runtime by calling *Resources.getXML()*. You can save various configuration files here which will be used at run time.
+Directory | Resource Type
+---------- | -----------
+anim/ | XML files that define property animations. They are saved in res/anim/ folder and accessed from the **R.anim** class.
+color/ | XML files that define a state list of colors. They are saved in res/color/ and accessed from the **R.color** class.
+drawable/ | Image files like .png, .jpg, .gif or XML files that are compiled into bitmaps, state lists, shapes, animation drawables. They are saved in res/drawable/ and accessed from the **R.drawable** class.
+layout/ | XML files that define a user interface layout. They are saved in res/layout/ and accessed from the **R.layout** class.
+menu/ | XML files that define application menus, such as an Options Menu, Context Menu, or Sub Menu. They are saved in res/menu/ and accessed from the **R.menu** class.
+raw/ | Arbitrary files to save in their raw form. You need to call *Resources.openRawResource()* with the resource ID, which is *R.raw.filename* to open such raw files.
+values/ | XML files that contain simple values, such as strings, integers, and colors. For example, here are some filename conventions for resources you can create in this directory: <br><br>- arrays.xml for resource arrays, and accessed from the **R.array** class.<br>- integers.xml for resource integers, and accessed from the **R.integer** class.<br>- bools.xml for resource boolean, and accessed from the **R.bool** class.<br>- colors.xml for color values, and accessed from the **R.color** class.<br>- dimens.xml for dimension values, and accessed from the **R.dimen** class.<br>- strings.xml for string values, and accessed from the **R.string** class.<br>- styles.xml for styles, and accessed from the **R.style** class.
+xml/ | Arbitrary XML files that can be read at runtime by calling *Resources.getXML()*. You can save various configuration files here which will be used at run time.
 
 **Alternative Resources**
 
