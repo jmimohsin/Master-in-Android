@@ -7,6 +7,7 @@ Each Android applications runs in its own process with its own permissions which
 Content providers let you centralize content in one place and have many different applications access it as needed. A content provider behaves very much like a database where you can query it, edit its content, as well as add or delete content usingg insert(), update(), delete(), and query() methods. In most cases this data is stored in an **SQlite** database.
 
 A content provider is implemented as a subclass of **ContentProvider** class and must implement a standard set of APIs that enable other applications to perform transactions.
+
 ```java
 public class MyContentProvider extends  ContentProvider {
  
@@ -15,9 +16,11 @@ public class MyContentProvider extends  ContentProvider {
 **Content URIs**
 
 To query a content provider, you specify the query string in the form of a URI which has following format:
-```java
+
+```xml
 <prefix>://<authority>/<data_type>/<id>
 ```
+
 Here is the detaial of various parts of the URI:
 
 
@@ -64,6 +67,7 @@ This example will explain you how to create your own *ContentProvider*. So let's
 
 
 Following is the content of the modified main activity file **src/com.example.mycontentprovider/MainActivity.java**. This file can include each of the fundamental lifecycle methods. We have added two new methods *onClickAddName()* and *onClickRetrieveStudents()* to handle user interaction with the application.
+
 ```java
 package com.example.mycontentprovider;
  
@@ -127,6 +131,7 @@ public class MainActivity extends Activity {
 }
 ```
 Create new file StudentsProvider.java under _com.example.mycontentprovider_ package and following is the content of **src/com.example.mycontentprovider/StudentsProvider.java**:
+
 ```java
 package com.example.mycontentprovider;
  
@@ -155,7 +160,7 @@ public class StudentsProvider extends ContentProvider {
    static final String NAME = "name";
    static final String GRADE = "grade";
  
-   private static HashMap<String, String> STUDENTS\_PROJECTION\_MAP;
+   private static HashMap<String, String> STUDENTS_PROJECTION_MAP;
  
    static final int STUDENTS = 1;
    static final int STUDENT_ID = 2;
@@ -170,15 +175,15 @@ public class StudentsProvider extends ContentProvider {
    /* Database specific constant declarations */
    private SQLiteDatabase db;
    static final String DATABASE_NAME = "College";
-   static final String STUDENTS\_TABLE\_NAME = "students";
+   static final String STUDENTS_TABLE_NAME = "students";
    static final int DATABASE_VERSION = 1;
-   static final String CREATE\_DB\_TABLE =
-      " CREATE TABLE " + STUDENTS\_TABLE\_NAME +
+   static final String CREATE_DB_TABLE =
+      " CREATE TABLE " + STUDENTS_TABLE_NAME +
       " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
       " name TEXT NOT NULL, " +
       " grade TEXT NOT NULL);";
  
-   /* Helper class that actually creates and manages*/
+ /* Helper class that actually creates and manages*/
  /* the provider's underlying data repository. */
  
    private static class DatabaseHelper extends SQLiteOpenHelper {
@@ -189,13 +194,13 @@ public class StudentsProvider extends ContentProvider {
        @Override
        public void onCreate(SQLiteDatabase db)
        {
-          db.execSQL(CREATE\_DB\_TABLE);
+          db.execSQL(CREATE_DB_TABLE);
        }
       
        @Override
        public void onUpgrade(SQLiteDatabase db, int oldVersion,
                              int newVersion) {
-          db.execSQL("DROP TABLE IF EXISTS " +  STUDENTS\_TABLE\_NAME);
+          db.execSQL("DROP TABLE IF EXISTS " +  STUDENTS_TABLE_NAME);
           onCreate(db);
        }
    }
@@ -214,7 +219,7 @@ public class StudentsProvider extends ContentProvider {
    @Override
    public Uri insert(Uri uri, ContentValues values) {
       /*Add a new student record */
-      long rowID = db.insert(  STUDENTS\_TABLE\_NAME, "", values);
+      long rowID = db.insert(  STUDENTS_TABLE_NAME, "", values);
       /* If record is added successfully */
       if (rowID > 0)
       {
@@ -226,15 +231,15 @@ public class StudentsProvider extends ContentProvider {
    }
  
    @Override
-   public Cursor query(Uri uri, String\[\] projection, String selection,     
-                       String\[\] selectionArgs, String sortOrder) {
+   public Cursor query(Uri uri, String[] projection, String selection,     
+                       String[] selectionArgs, String sortOrder) {
      
       SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
-      qb.setTables(STUDENTS\_TABLE\_NAME);
+      qb.setTables(STUDENTS_TABLE_NAME);
      
       switch (uriMatcher.match(uri)) {
       case STUDENTS:
-         qb.setProjectionMap(STUDENTS\_PROJECTION\_MAP);
+         qb.setProjectionMap(STUDENTS_PROJECTION_MAP);
          break;
       case STUDENT_ID:
          qb.appendWhere( _ID + "=" + uri.getPathSegments().get(1));
@@ -255,16 +260,16 @@ public class StudentsProvider extends ContentProvider {
    }
  
    @Override
-   public int delete(Uri uri, String selection, String\[\] selectionArgs) {
+   public int delete(Uri uri, String selection, String[] selectionArgs) {
       int count = 0;
  
       switch (uriMatcher.match(uri)){
       case STUDENTS:
-         count = db.delete(STUDENTS\_TABLE\_NAME, selection, selectionArgs);
+         count = db.delete(STUDENTS_TABLE_NAME, selection, selectionArgs);
          break;
       case STUDENT_ID:
          String id = uri.getPathSegments().get(1);
-         count = db.delete( STUDENTS\_TABLE\_NAME, _ID +  " = " + id +
+         count = db.delete( STUDENTS_TABLE_NAME, _ID +  " = " + id +
                 (!TextUtils.isEmpty(selection) ? " AND (" +
                 selection + ')' : ""), selectionArgs);
          break;
@@ -278,16 +283,16 @@ public class StudentsProvider extends ContentProvider {
  
    @Override
    public int update(Uri uri, ContentValues values, String selection,
-                     String\[\] selectionArgs) {
+                     String[] selectionArgs) {
       int count = 0;
      
       switch (uriMatcher.match(uri)){
       case STUDENTS:
-         count = db.update(STUDENTS\_TABLE\_NAME, values,
+         count = db.update(STUDENTS_TABLE_NAME, values,
                  selection, selectionArgs);
          break;
       case STUDENT_ID:
-         count = db.update(STUDENTS\_TABLE\_NAME, values, _ID +
+         count = db.update(STUDENTS_TABLE_NAME, values, _ID +
                  " = " + uri.getPathSegments().get(1) +
                  (!TextUtils.isEmpty(selection) ? " AND (" +
                  selection + ')' : ""), selectionArgs);
@@ -314,7 +319,9 @@ public class StudentsProvider extends ContentProvider {
    }
 }
 ```
+
 Following will the modified content of _AndroidManifest.xml_ file. Here we have added <provider.../> tag to include our content provider:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -346,7 +353,9 @@ Following will the modified content of _AndroidManifest.xml_ file. Here we have 
  
 </manifest>
 ```
+
 Following will be the content of **res/layout/activity_main.xml** file to include a button to broadcast your custom intent:
+
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
@@ -383,14 +392,16 @@ Following will be the content of **res/layout/activity_main.xml** file to includ
 </LinearLayout>
 ```
 Make sure you have following content of **res/values/strings.xml** file:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MyContentProvider</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-</resources>;
+</resources>
 ```
+
 Let's try to run our modified **MyContentProvider** application we just created. I assume you had created your **AVD** while doing environment setup. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Eclipse installs the app on your AVD and starts it and if everything is fine with your setup and application, it will display following Emulator window, be patience because it may take sometime based on your computer speed:
 
 Now let's enter student **Name** and **Grade** and finally click on **Add Name** button, this will add student record in the database and will flash a message at the bottom showing ContentProvider URI along with record number added in the database. This operation makes use of our **insert()** method. Let's repeat this process to add few more students in the database of our content provider.
