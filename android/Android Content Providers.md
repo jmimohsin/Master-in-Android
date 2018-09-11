@@ -357,38 +357,45 @@ Following will the modified content of _AndroidManifest.xml_ file. Here we have 
 Following will be the content of **res/layout/activity_main.xml** file to include a button to broadcast your custom intent:
 
 ```xml
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+
     <TextView
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:text="Name" />
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Name" />
+
     <EditText
-    android:id="@+id/txtName"
-    android:layout_height="wrap_content"
-    android:layout_width="fill_parent" />
+        android:id="@+id/txtName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
     <TextView
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:text="Grade" />
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Grade" />
+
     <EditText
-    android:id="@+id/txtGrade"
-    android:layout_height="wrap_content"
-    android:layout_width="fill_parent" />
+        android:id="@+id/txtGrade"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
     <Button
-    android:text="Add Name"
-    android:id="@+id/btnAdd"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:onClick="onClickAddName" />
+        android:id="@+id/btnAdd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickAddName"
+        android:text="Add Name" />
+
     <Button
-    android:text="Retrieve Students"
-    android:id="@+id/btnRetrieve"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:onClick="onClickRetrieveStudents" />
+        android:id="@+id/btnRetrieve"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickRetrieveStudents"
+        android:text="Retrieve Students" />
 </LinearLayout>
 ```
 Make sure you have following content of **res/values/strings.xml** file:
