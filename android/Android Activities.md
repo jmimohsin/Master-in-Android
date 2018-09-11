@@ -7,33 +7,15 @@ If you have worked with C, C++ or Java programming language then you must have s
 
 The Activity lass defines the following callbacks i.e. events. You don't need to implement all the callbacks methods. However, it's important that you understand each one and implement those that ensure your app behaves the way users expect.
 
-onCreate()
-
-This is the first callback and called when the activity is first created.
-
-onStart()
-
-This callback is called when the activity becomes visible to the user.
-
-onResume()
-
-This is called when the user starts interacting with the application.
-
-onPause()
-
-The paused activity does not receive user input and cannot execute any code and called when the current activity is being paused and the previous activity is being resumed.
-
-onStop()
-
-This callback is called when the activity is no longer visible.
-
-onDestroy()
-
-This callback is called before the activity is destroyed by the system.
-
-onRestart()
-
-This callback is called when the activity restarts after stopping it.
+Callback| Description
+---------- | -----------
+onCreate() | This is the first callback and called when the activity is first created.
+onStart() | This callback is called when the activity becomes visible to the user.
+onResume() | This is called when the user starts interacting with the application.
+onPause() | The paused activity does not receive user input and cannot execute any code and called when the current activity is being paused and the previous activity is being resumed.
+onStop() | This callback is called when the activity is no longer visible.
+onDestroy() | This callback is called before the activity is destroyed by the system.
+onRestart() | This callback is called when the activity restarts after stopping it.
 
 **Example**
 
