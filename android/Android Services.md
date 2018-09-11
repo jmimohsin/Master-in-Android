@@ -23,6 +23,7 @@ To create an service, you create a Java class that extends the Service base clas
 | onDestroy() | The system calls this method when the service is no longer used and is being destroyed. Your service should implement this to clean up any resources such as threads, registered listeners, receivers, etc. |
 
 The following skeleton service demonstrates each of the lifecycle methods:
+
 ```java
 package com.tutorialspoint;
  
@@ -77,6 +78,7 @@ public class HelloService extends Service {
    }
 }
 ```
+
 ### Example
 This example will take you through simple steps to show how to create your own Android Service. Follow the following steps to modify the Android application we created in _Hello World Example_ chapter:
 
@@ -126,6 +128,7 @@ public class MainActivity extends Activity {
    }
 }
 ```
+
 Following is the content of **src/com.example.helloworld/MyService.java**. This file can have implementation of one or more methods associated with Service based on requirements. For now we are going to implement only two methods _onStartCommand()_ and _onDestroy()_:
 
 ```java
@@ -181,7 +184,9 @@ Following will the modified content of _AndroidManifest.xml_ file. Here we have 
    </application>
 </manifest>
 ```
+
 Following will be the content of **res/layout/activity\_main.xml** file to include two buttons:
+
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
    android:layout_width="fill_parent"
@@ -202,8 +207,10 @@ Following will be the content of **res/layout/activity\_main.xml** file to inclu
  
 </LinearLayout>
 ```
+
 Following will be the content of **res/values/strings.xml** to define two new constants:
-```java
+
+```xml
 <resources>
  
     <string name="app_name">HelloWorld</string>
@@ -215,6 +222,7 @@ Following will be the content of **res/values/strings.xml** to define two new co
  
 </resources>
 ```
+
 Let's try to run our modified **Hello World!** application we just modified. I assume you had created your **AVD** while doing environment setup. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Eclipse installs the app on your AVD and starts it and if everything is fine with your setup and application, it will display following Emulator window:
 
 Now to start your service, let's click on **Start Service** button, this will start the service and as per our programming in _onStartCommand()_ method, a message _Service Started_ will appear on the bottom of the the simulator as follows:
