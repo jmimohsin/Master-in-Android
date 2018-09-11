@@ -40,7 +40,7 @@ public class HelloService extends Service {
    /* indicates whether onRebind should be used */
    boolean mAllowRebind;
  
-   */ Called when the service is being created. */
+   /* Called when the service is being created. */
    @Override
    public void onCreate() {
     
@@ -107,11 +107,11 @@ public class MainActivity extends Activity {
    @Override
    public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      setContentView(R.layout.activity\_main);
+      setContentView(R.layout.activity_main);
    }
    @Override
    public boolean onCreateOptionsMenu(Menu menu) {
-      getMenuInflater().inflate(R.menu.activity\_main, menu);
+      getMenuInflater().inflate(R.menu.activity_main, menu);
       return true;
    }
  
@@ -145,13 +145,13 @@ public class MyService extends Service {
    @Override
    public int onStartCommand(Intent intent, int flags, int startId) {
       // Let it continue running until it is stopped.
-      Toast.makeText(this, "Service Started", Toast.LENGTH\_LONG).show();
-      return START\_STICKY;
+      Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show();
+      return START_STICKY;
    }
    @Override
    public void onDestroy() {
       super.onDestroy();
-      Toast.makeText(this, "Service Destroyed", Toast.LENGTH\_LONG).show();
+      Toast.makeText(this, "Service Destroyed", Toast.LENGTH_LONG).show();
    }
 }
 ```
@@ -161,17 +161,17 @@ Following will the modified content of _AndroidManifest.xml_ file. Here we have 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
    package="com.example.helloworld"
    android:versionCode="1"
-   android:versionName="1.0" \>
+   android:versionName="1.0">
    <uses-sdk
       android:minSdkVersion="8"
-      android:targetSdkVersion="15" />
+      android:targetSdkVersion="15" >
    <application
-       android:icon="@drawable/ic\_launcher"
-       android:label="@string/app\_name"
-       android:theme="@style/AppTheme" \>
+       android:icon="@drawable/ic_launcher"
+       android:label="@string/app_name"
+       android:theme="@style/AppTheme" >
        <activity
            android:name=".MainActivity"
-           android:label="@string/title\_activity\_main" \>
+           android:label="@string/title_activity_main" >
            <intent-filter>
                <action android:name="android.intent.action.MAIN" />
                <category android:name="android.intent.category.LAUNCHER"/>
@@ -184,20 +184,20 @@ Following will the modified content of _AndroidManifest.xml_ file. Here we have 
 Following will be the content of **res/layout/activity\_main.xml** file to include two buttons:
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   android:layout\_width="fill\_parent"
-   android:layout\_height="fill\_parent"
-   android:orientation="vertical" \>
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:orientation="vertical" >
  
    <Button android:id="@+id/btnStartService"
-   android:layout\_width="fill\_parent"
-   android:layout\_height="wrap\_content"
-   android:text="@string/start\_service"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:text="@string/start_service"
    android:onClick="startService"/>
  
    <Button android:id="@+id/btnStopService"
-   android:layout\_width="fill\_parent"
-   android:layout\_height="wrap\_content"
-   android:text="@string/stop\_service"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:text="@string/stop_service"
    android:onClick="stopService" />
  
 </LinearLayout>
@@ -206,12 +206,12 @@ Following will be the content of **res/values/strings.xml** to define two new co
 ```java
 <resources>
  
-    <string name="app\_name"\>HelloWorld</string>
-    <string name="hello\_world"\>Hello world!</string>
-    <string name="menu\_settings"\>Settings</string>
-    <string name="title\_activity\_main"\>MainActivity</string>
-    <string name="start\_service"\>Start Service</string>
-    <string name="stop\_service"\>Stop Service</string>
+    <string name="app_name">HelloWorld</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="start_service">Start Service</string>
+    <string name="stop_service">Stop Service</string>
  
 </resources>
 ```
