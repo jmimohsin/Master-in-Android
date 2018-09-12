@@ -11,7 +11,6 @@ There are following three concepts related to Android Event Management:
 ## Event Listeners & Event Handlers
 
 
-
 | Event Handler| Event Listener & Description| 
 | ------------- |:-------------:| 
 | onClick()      | **OnClickListener()** <br>This is called when the user either clicks or touches or focuses upon any widget like button, text, image etc. You will use onClick() event handler to handle such event.| 
@@ -148,9 +147,11 @@ Following will be the content of **res/values/strings.xml** to define two new co
     <string name="button_small">Small Font</string>
     <string name="button_large">Large Font</string>
 </resources>
+```
 
 Following is the default content of **AndroidManifest.xml**:
 
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.guidemo"
@@ -179,6 +180,7 @@ Following is the default content of **AndroidManifest.xml**:
  
 </manifest>
 ```
+
 Let's try to run your **EventDemo** application. I assume you had created your **AVD** while doing environment setup. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Eclipse installs the app on your AVD and starts it and if everything is fine with your setup and application, it will display following Emulator window:
 
 Now you try to click on two buttons one by one and you will see that font of the **Hello World** text will change, which happens because registered click event handler method is being called against each click event.
@@ -260,6 +262,7 @@ public class MainActivity extends Activity implements OnClickListener {
    
 }
 ```
+
 Now again let's try to run your **EventDemo** application. I assume you had created your **AVD** while doing environment setup. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Eclipse installs the app on your AVD and starts it and if everything is fine with your setup and application, it will display following Emulator window:
 
 Now you try to click on two buttons one by one and yu will see that font of the **Hello World** text will change, which happens because registered click event handler method is being called against each click event.
@@ -327,6 +330,7 @@ public class MainActivity extends Activity{
     } 
 }
 ```
+
 Following will be the content of **res/layout/activity_main.xml** file. Here we have to add **android:onClick**=**"methodName"** for both the buttons, which will register given method names as click event handlers.
 
 ```xml
@@ -359,6 +363,7 @@ Following will be the content of **res/layout/activity_main.xml** file. Here we 
  
 </LinearLayout>
 ```
+
 Again let's try to run your **EventDemo** application. I assume you had created your **AVD** while doing environment setup. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Eclipse installs the app on your AVD and starts it and if everything is fine with your setup and application, it will display following Emulator window:
 
 Now you try to click on two buttons one by one and you will see that font of the **Hello World** text will change, which happens because registered click event handler method is being called against each click event.
