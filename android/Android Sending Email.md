@@ -97,8 +97,8 @@ public class MainActivity extends Activity {
    protected void sendEmail() {
       Log.i("Send email", "");
  
-      String[] TO = {"amrood.admin@gmail.com"};
-      String[] CC = {"mcmohd@gmail.com"};
+      String[] TO = {"info@coders-hub.com"};
+      String[] CC = {"jmi.mohsin@gmail.com"};
       Intent emailIntent = new Intent(Intent.ACTION_SEND);
       emailIntent.setData(Uri.parse("mailto:"));
       emailIntent.setType("text/plain");
