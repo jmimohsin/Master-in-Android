@@ -104,9 +104,9 @@ Following example shows the functionality of a Android notification using a **No
 | Steps        | Description           | 
 | ------------- |:------------- 
 | 1      | You will use Eclipse IDE to create an Android application and name it as _NotificationDemo_ under a package _com.example.notificationdemo_. While creating this project, make sure you _Target SDK_ and _Compile With_ at the latest version of Android SDK to use higher levels of APIs. | 
-| 2      | Modify _src__/MainActivity.java_ file and add the code to define three methods startNotification(), cancelNotification() and updateNotification() to cover maximum functionality related to Android notifications. | 
-| 3      | Create a new Java file _src__/NotificationView.java_, which will be used to display new layout as a part of new activity which will be started when user will click any of the notifications |
-| 4      | Copy image woman.png in _res/drawable-*_ folders and this image will be used as Notification icons. You can use images with different resolution in case you want to provide them for different devices. |
+| 2      | Modify _src/MainActivity.java_ file and add the code to define three methods startNotification(), cancelNotification() and updateNotification() to cover maximum functionality related to Android notifications. | 
+| 3      | Create a new Java file _src/NotificationView.java_, which will be used to display new layout as a part of new activity which will be started when user will click any of the notifications |
+| 4      | Copy image woman.png in _res/drawable_ folders and this image will be used as Notification icons. You can use images with different resolution in case you want to provide them for different devices. |
 | 5      | Modify layout XML file _res/layout/activity_main.xml_ to add three buttons in linear layout. |
 | 6      | Create a new layout XML file _res/layout/notification.xml_. This will be used as layout file for new activity which will start when user will click any of the notifications. |
 | 7      | Modify _res/values/strings.xml_ to define required constant values |
