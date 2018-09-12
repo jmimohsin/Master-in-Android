@@ -11,6 +11,7 @@ You will use **ACTION_CALL** action to trigger built-in phone call functionality
 ```java
 Intent phoneIntent = new Intent(Intent.ACTION_CALL);
 ```
+
 You can use **ACTION_DIAL** action instead of ACTION_CALL, in that case you will have option to modify hardcoded phone number before making a call instead of making a direct call.
 
 ## Intent Object - Data/Type to make Phone Call
@@ -20,6 +21,7 @@ To make a phone call at a given number 91-800-001-0101, you need to specify **te
 ```java
 phoneIntent.setData(Uri.parse("tel:91-800-001-0101"));
 ```
+
 The interesting point is that, to make a phone call, you do not need to specify any extra data or data type.
 
 ### Example
@@ -31,7 +33,7 @@ To experiment with this example, you will need actual Mobile device equipped wit
 | Step        | Description           | 
 | ------------- |:------------- 
 | 1      | You will use Eclipse IDE to create an Android application and name it as _PhoneCallDemo_ under a package _com.example.phonecalldemo_. While creating this project, make sure you _Target SDK_ and _Compile With_ at the latest version of Android SDK to use higher levels of APIs. | 
-| 2      | Modify _src__/MainActivity.java_ file and add required code to take care of making a call. | 
+| 2      | Modify _src/MainActivity.java_ file and add required code to take care of making a call. | 
 | 3      | Modify layout XML file _res/layout/activity_main.xml_ add any GUI component if required. I'm adding a simple button to Call 91-800-001-0101 number |
 | 4      | Modify _res/values/strings.xml_ to define required constant values |
 | 5      | Modify _AndroidManifest.xml_ as shown below |
@@ -92,6 +94,7 @@ public class MainActivity extends Activity {
    }
 }
 ```
+
 Following will be the content of **res/layout/activity_main.xml** file:
 
 ```xml
@@ -107,7 +110,9 @@ Following will be the content of **res/layout/activity_main.xml** file:
    
 </LinearLayout>
 ```
+
 Following will be the content of **res/values/strings.xml** to define two new constants:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -121,7 +126,7 @@ Following will be the content of **res/values/strings.xml** to define two new co
 ```
 Following is the default content of **AndroidManifest.xml**:
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.phonecalldemo"
@@ -132,7 +137,7 @@ Following is the default content of **AndroidManifest.xml**:
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
    <uses-permission android:name="android.permission.CALL_PHONE" />
-   <uses-permission android:name="android.permission.READ\_PHONE\_STATE" />
+   <uses-permission android:name="android.permission.READ_PHONE_STATE" />
  
     <application
         android:allowBackup="true"
@@ -151,6 +156,7 @@ Following is the default content of **AndroidManifest.xml**:
     </application>
 </manifest>
 ```
+
 Let's try to run your **PhoneCallDemo** application. I assume you have connected your actual Android Mobile device with your computer. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Before starting your application, Eclipse will display following window to select an option where you want to run your Android application.
 
 Selct your mobile device as an option and then check your mobile device which will display following screen:
