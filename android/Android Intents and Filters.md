@@ -75,6 +75,7 @@ There are following two types of intents supported by Android till version 4.1
 **Explicit Intents**
 
 These intents designate the target component by its name and they are typically used for application-internal messages - such as an activity starting a subordinate service or launching a sister activity. For example:
+
 ```java
 // Explicit Intent by specifying its class name
 Intent i = new Intent(this, TargetActivity.class);
@@ -84,9 +85,11 @@ i.putExtra("Key2", "123");
 // Starts TargetActivity
 startActivity(i);
 ```
+
 **Implicit Intents**
 
 These intents do not name a target and the field for the component name is left blank. Implicit intents are often used to activate components in other applications. For example:
+
 ```java
 // Implicit Intent by specifying a URI
 Intent i = new Intent(Intent.ACTION_VIEW,
@@ -95,7 +98,9 @@ Uri.parse("http://www.example.com"));
 // Starts Implicit Activity
 startActivity(i);
 ```
+
 The target component which receives the intent can use the **getExtras()** method to get the extra data sent by the source component. For example:
+
 ```java
 // Get bundle object at appropriate place in your code
 Bundle extras = getIntent().getExtras();
@@ -166,7 +171,9 @@ public class MainActivity extends Activity {
    
 }
 ```
+
 Following will be the content of **res/layout/activity_main.xml** file:
+
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
    android:layout_width="fill_parent"
@@ -185,7 +192,9 @@ Following will be the content of **res/layout/activity_main.xml** file:
  
 </LinearLayout>
 ```
+
 Following will be the content of **res/values/strings.xml** to define two new constants:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -198,7 +207,9 @@ Following will be the content of **res/values/strings.xml** to define two new co
    
 </resources>
 ```
+
 Following is the default content of **AndroidManifest.xml**:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -228,6 +239,7 @@ Following is the default content of **AndroidManifest.xml**:
  
 </manifest>
 ```
+
 Let's try to run your **IntentDemo** application. I assume you had created your **AVD** while doing environment setup. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Eclipse installs the app on your AVD and starts it and if everything is fine with your setup and application, it will display following Emulator window:
 
 Now click on **Start Browser** button which will start a browser configured and display http://www.example.com as shown below:
@@ -239,6 +251,7 @@ Similar way Ou can launch phone interface using Start Phone button, which will a
 You have seen how an Intent has been used to call an another activity. Android OS uses filters to pinpoint the set of Activities, Services, and Broadcast receivers that can handle the Intent with help of specified set of action, categories, data scheme associated with an Intent. You will use **<intent-filter>** element in the manifest file to list down actions, categories and data types associated with any activity, service, or broadcast receiver.
 
 Following is an example of a part of **AndroidManifest.xml** file to specify an activity **com.example.intentdemo.CustomActivity** which can be invoked by either of the two mentioned actions, one category, and one data:
+
 ```xml
 <activity android:name=".CustomActivity"
    android:label="@string/app_name">
@@ -250,6 +263,7 @@ Following is an example of a part of **AndroidManifest.xml** file to specify an 
    </intent-filter>
 </activity>
 ```
+
 Once this activity is defined along with above mentioned filters, other activities will be able to invoke this activity using either the **android.intent.action.VIEW**, or using the **com.example.intentdemo.LAUNCH** action provided their category is **android.intent.category.DEFAULT**.
 
 The **&#60;data&#62;** element specifies the data type expected by the activity to be called and for above example our custom activity expects the data to start with the "http://"
@@ -301,7 +315,7 @@ public class MainActivity extends Activity {
       setContentView(R.layout.activity_main);
  
       // First intent to use ACTION_VIEW action with correct data
-      Button startBrowser_a = (Button) findViewById(R.id.start\_browser\_a);
+      Button startBrowser_a = (Button) findViewById(R.id.start_browser_a);
       startBrowser_a.setOnClickListener(new View.OnClickListener() {
          public void onClick(View view) {
             Intent i = new Intent(android.content.Intent.ACTION_VIEW,
@@ -311,7 +325,7 @@ public class MainActivity extends Activity {
       });
  
       // Second intent to use LAUNCH action with correct data
-      Button startBrowser_b = (Button) findViewById(R.id.start\_browser\_b);
+      Button startBrowser_b = (Button) findViewById(R.id.start_browser_b);
       startBrowser_b.setOnClickListener(new View.OnClickListener() {
          public void onClick(View view) {
             Intent i = new Intent("com.example.intentdemo.LAUNCH",
@@ -321,7 +335,7 @@ public class MainActivity extends Activity {
       });
  
       // Third intent to use LAUNCH action with incorrect data
-      Button startBrowser_c = (Button) findViewById(R.id.start\_browser\_c);
+      Button startBrowser_c = (Button) findViewById(R.id.start_browser_c);
       startBrowser_c.setOnClickListener(new View.OnClickListener() {
          public void onClick(View view) {
             Intent i = new Intent("com.example.intentdemo.LAUNCH",
@@ -342,7 +356,9 @@ public class MainActivity extends Activity {
    
 }
 ```
+
 Following is the content of the modified main activity file **src/com.example.intentdemo/CustomActivity.java**.
+
 ```java
 package com.example.intentdemo;
  
@@ -365,31 +381,35 @@ public class CustomActivity extends Activity {
        
 }
 ```
+
 Following will be the content of **res/layout/activity_main.xml** file:
+
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
    android:layout_width="fill_parent"
    android:layout_height="fill_parent"
    android:orientation="vertical" >
  
-   <Button android:id="@+id/start\_browser\_a"
+   <Button android:id="@+id/start_browser_a"
    android:layout_width="fill_parent"
    android:layout_height="wrap_content"
-   android:text="@string/start\_browser\_a"/>
+   android:text="@string/start_browser_a"/>
  
-   <Button android:id="@+id/start\_browser\_b"
+   <Button android:id="@+id/start_browser_b"
    android:layout_width="fill_parent"
    android:layout_height="wrap_content"
-   android:text="@string/start\_browser\_b"/>
+   android:text="@string/start_browser_b"/>
   
-   <Button android:id="@+id/start\_browser\_c"
+   <Button android:id="@+id/start_browser_c"
    android:layout_width="fill_parent"
    android:layout_height="wrap_content"
-   android:text="@string/start\_browser\_c"/>
+   android:text="@string/start_browser_c"/>
  
 </LinearLayout>
 ```
+
 Following will be the content of **res/layout/custom_view.xml** file:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -413,13 +433,15 @@ Following will be the content of **res/values/strings.xml** to define two new co
     <string name="app_name">IntentDemo</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="start\_browser\_a">Start Browser with VIEW action</string>
-    <string name="start\_browser\_b">Start Browser with LAUNCH action</string>
-    <string name="start\_browser\_c">Exception Condition</string>
+    <string name="start_browser_a">Start Browser with VIEW action</string>
+    <string name="start_browser_b">Start Browser with LAUNCH action</string>
+    <string name="start_browser_c">Exception Condition</string>
    
 </resources>
 ```
+
 Following is the default content of **AndroidManifest.xml**:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -457,6 +479,7 @@ Following is the default content of **AndroidManifest.xml**:
  
 </manifest>
 ```
+
 Let's try to run your **IntentDemo** application. I assume you had created your **AVD** while doing environment setup. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Eclipse installs the app on your AVD and starts it and if everything is fine with your setup and application, it will display following Emulator window:
 
 Now let's start with first button "Stat Browser with VIEW Action". Here we have defined our custom activity with a filter "android.intent.action.VIEW", and there is already one default activity against VIEW action defined by Android which is launching web browser, so android displays following two options to select the activity you want to launch.
