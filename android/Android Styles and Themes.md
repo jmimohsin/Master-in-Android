@@ -81,7 +81,7 @@ Once your style is defined, you can use it in your XML Layout file using
    android:text="@string/hello_world" />
  
 </LinearLayout>
-``` 
+```
 
 To understand the concept related to Android Style, you can check Style Demo
 Example.
@@ -104,7 +104,7 @@ author the new style like this:
       <item name="android:textSize">20ps</item>
    </style>
 </resources>
-``` 
+```
 
 You can reference this new style as **\@style/CustomFontStyle.LargeFont** in
 your XML Layout file. You can continue inheriting like this as many times as
