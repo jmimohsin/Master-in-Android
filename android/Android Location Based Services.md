@@ -117,7 +117,7 @@ Before you proceed to have location support in your Android Applications, you ne
 
 | Step        | Description| 
 | ------------- |:------------- 
-| 1      | You will use Eclipse IDE to create an Android application and name it as _LBSDemo__/i> under a package com.example.lbsdemo. While creating this project, make sure you Target SDK and Compile With at the latest version of Android SDK to use higher levels of APIs._ | 
+| 1      | You will use Eclipse IDE to create an Android application and name it as _LBSDemo_/i> under a package com.example.lbsdemo. While creating this project, make sure you Target SDK and Compile With at the latest version of Android SDK to use higher levels of APIs._ | 
 | 2      | Add **Google Play Service** library in your project by following simple steps given below. | 
 | 3      | Modify _src__/MainActivity.java_ file and add required code as shown below to take care of getting current location and its equivalent address. |
 | 4      | Modify layout XML file _res/layout/activity_main.xml_ to add all GUI components which include three buttons and two text views to show location/address. |
@@ -310,7 +310,9 @@ GooglePlayServicesClient.OnConnectionFailedListener
    }// AsyncTask class
 }
 ```
+
 Following will be the content of **res/layout/activity_main.xml** file:
+
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
    android:layout_width="fill_parent"
@@ -344,7 +346,9 @@ Following will be the content of **res/layout/activity_main.xml** file:
    
 </LinearLayout>
 ```
+
 Following will be the content of **res/values/strings.xml** to define two new constants:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -357,7 +361,9 @@ Following will be the content of **res/values/strings.xml** to define two new co
     <string name="connect">Connect Service</string>
 </resources>
 ```
+
 Following is the default content of **AndroidManifest.xml**:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -388,6 +394,7 @@ Following is the default content of **AndroidManifest.xml**:
  
 </manifest>
 ```
+
 Let's try to run your **LBSDemo** application. I assume you have connected your actual Android Mobile device with your computer. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Before starting your application, Eclipse will display following window to select an option where you want to run your Android application.
 
 Select mobile device as an option and then check your mobile device which will display following screen:
