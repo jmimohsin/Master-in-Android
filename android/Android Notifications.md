@@ -15,6 +15,7 @@ You have simple way to create a notification. Follow the following steps in your
 ### Step 1 - Create Notification Builder
 
 As a first step is to create a notification builder using _NotificationCompat.Builder.build()_. You will use Notification Builder to set various Notification properties like its small and large icons, title, priority etc.
+
 ```java
 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
 ```
@@ -32,6 +33,7 @@ mBuilder.setSmallIcon(R.drawable.notification_icon);
 mBuilder.setContentTitle("Notification Alert, Click Me!");
 mBuilder.setContentText("Hi, This is Android Notification Detail!");
 ```
+
 You have plenty of optional properties which you can set for your notification. To learn more about them, see the reference documentation for NotificationCompat.Builder.
 
 ### Step 3 - Attach Actions
@@ -54,7 +56,7 @@ stackBuilder.addNextIntent(resultIntent);
 PendingIntent resultPendingIntent =
         stackBuilder.getPendingIntent(
             0,
-            PendingIntent.FLAG\_UPDATE\_CURRENT
+            PendingIntent.FLAG_UPDATE_CURRENT
         );
 mBuilder.setContentIntent(resultPendingIntent);
 ````
@@ -93,7 +95,6 @@ The NotificationCompat.Builder class allows easier control over all the flags, a
 | 14      | **NotificationCompat.Builder** **setTicker (CharSequence tickerText)**  <br>Set the text that is displayed in the status bar when the notification first arrives. | 
 | 15      | **NotificationCompat.Builder** **setVibrate (long[] pattern)**  <br>Set the vibration pattern to use. | 
 | 16      | **NotificationCompat.Builder** **setWhen (long when)**<br>Set the time that the event occurred. Notifications in the panel are sorted by this time. | 
-
 
 
 ### Example
@@ -184,7 +185,7 @@ public class MainActivity extends Activity {
       PendingIntent resultPendingIntent =
          stackBuilder.getPendingIntent(
             0,
-            PendingIntent.FLAG\_UPDATE\_CURRENT
+            PendingIntent.FLAG_UPDATE_CURRENT
          );
  
       mBuilder.setContentIntent(resultPendingIntent);
@@ -227,7 +228,7 @@ public class MainActivity extends Activity {
       PendingIntent resultPendingIntent =
          stackBuilder.getPendingIntent(
             0,
-            PendingIntent.FLAG\_UPDATE\_CURRENT
+            PendingIntent.FLAG_UPDATE_CURRENT
          );
  
       mBuilder.setContentIntent(resultPendingIntent);
@@ -235,7 +236,7 @@ public class MainActivity extends Activity {
       mNotificationManager =
       (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
  
-      /\* Update the existing notification using same notification ID */
+      /* Update the existing notification using same notification ID */
       mNotificationManager.notify(notificationID, mBuilder.build());
    }
 }
@@ -259,48 +260,57 @@ public class NotificationView extends Activity{
  
 }
 ```
+
 Following will be the content of **res/layout/activity_main.xml** file:
+
 ```xml
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   android:layout_width="fill_parent"
-   android:layout_height="fill_parent"
-   android:orientation="vertical" >
- 
-   <Button android:id="@+id/start"
-   android:layout_width="fill_parent"
-   android:layout_height="wrap_content"
-   android:text="@string/start_note"/>
- 
- 
-   <Button android:id="@+id/cancel"
-   android:layout_width="fill_parent"
-   android:layout_height="wrap_content"
-   android:text="@string/cancel_note" />
-  
-   <Button android:id="@+id/update"
-   android:layout_width="fill_parent"
-   android:layout_height="wrap_content"
-   android:text="@string/update_note" />
- 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start_note" />
+
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel_note" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/update_note" />
+
 </LinearLayout>
 ```
 
 Following will be the content of **res/layout/notification.xml** file:
-```java
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"    >
-   <TextView
-   android:layout_width="fill_parent"
-   android:layout_height="400dp"
-   android:text="Hi, Your Detailed notification view goes here...." />
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
+        android:text="Hi, Your Detailed notification view goes here...." />
 </LinearLayout>
 ```
+
 Following will be the content of **res/values/strings.xml** to define two new constants:
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
  
@@ -313,9 +323,10 @@ Following will be the content of **res/values/strings.xml** to define two new co
  
 </resources>
 ```
+
 Following is the default content of **AndroidManifest.xml**:
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.notificationdemo"
@@ -387,20 +398,20 @@ protected void displayNotification() {
       NotificationCompat.InboxStyle inboxStyle =
              new NotificationCompat.InboxStyle();
  
-      String\[\] events = new String\[6\];
-      events\[0\] = new String("This is first line....");
-      events\[1\] = new String("This is second line...");
-      events\[2\] = new String("This is third line...");
-      events\[3\] = new String("This is 4th line...");
-      events\[4\] = new String("This is 5th line...");
-      events\[5\] = new String("This is 6th line...");
+      String[] events = new String[6];
+      events[0] = new String("This is first line....");
+      events[1] = new String("This is second line...");
+      events[2] = new String("This is third line...");
+      events[3] = new String("This is 4th line...");
+      events[4] = new String("This is 5th line...");
+      events[5] = new String("This is 6th line...");
  
       // Sets a title for the Inbox style big view
       inboxStyle.setBigContentTitle("Big Title Details:");
       // Moves events into the big view
       for (int i=0; i < events.length; i++) {
  
-         inboxStyle.addLine(events\[i\]);
+         inboxStyle.addLine(events[i]);
       }
       mBuilder.setStyle(inboxStyle);
       
@@ -416,7 +427,7 @@ protected void displayNotification() {
       PendingIntent resultPendingIntent =
          stackBuilder.getPendingIntent(
             0,
-            PendingIntent.FLAG\_UPDATE\_CURRENT
+            PendingIntent.FLAG_UPDATE_CURRENT
          );
  
       mBuilder.setContentIntent(resultPendingIntent);
@@ -428,4 +439,5 @@ protected void displayNotification() {
       mNotificationManager.notify(notificationID, mBuilder.build());
    }
 ```
+
 Now you will try to run your application.
