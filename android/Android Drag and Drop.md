@@ -15,16 +15,16 @@ There are basically four steps or states in the drag and drop process:
 
 The system first responds by calling back to your application to get a drag shadow. It then displays the drag shadow on the device.
 
-Next, the system sends a drag event with action type _ACTION\_DRAG\_STARTED_ to the registered drag event listeners for all the View objects in the current layout.
+Next, the system sends a drag event with action type _ACTION_DRAG_STARTED_ to the registered drag event listeners for all the View objects in the current layout.
 
-To continue to receive drag events, including a possible drop event, a drag event listener must return **true**, If the drag event listener returns false, then it will not receive drag events for the current operation until the system sends a drag event with action type ACTION\_DRAG\_ENDED.
+To continue to receive drag events, including a possible drop event, a drag event listener must return **true**, If the drag event listener returns false, then it will not receive drag events for the current operation until the system sends a drag event with action type ACTION_DRAG_ENDED.
 
-*   **Continuing:** The user continues the drag. System sends ACTION\_DRAG\_ENTERED action followed by ACTION\_DRAG\_LOCATION action to the registered drag event listener for the View where dragging point enters. The listener may choose to alter its View object's appearance in response to the event or can react by highlighting its View.
+*   **Continuing:** The user continues the drag. System sends ACTION_DRAG_ENTERED action followed by ACTION_DRAG_LOCATION action to the registered drag event listener for the View where dragging point enters. The listener may choose to alter its View object's appearance in response to the event or can react by highlighting its View.
 
-The drag event listener receives a ACTION\_DRAG\_EXITED action after the user has moved the drag shadow outside the bounding box of the View.
+The drag event listener receives a ACTION_DRAG_EXITED action after the user has moved the drag shadow outside the bounding box of the View.
 
 *   **Dropped:** The user releases the dragged item within the bounding box of a View. The system sends the View object's listener a drag event with action type ACTION_DROP.
-*   **Ended:** Just after the action type ACTION\_DROP, the system sends out a drag event with action type ACTION\_DRAG_ENDED to indicate that the drag operation is over.
+*   **Ended:** Just after the action type ACTION_DROP, the system sends out a drag event with action type ACTION_DRAG_ENDED to indicate that the drag operation is over.
 
 **The DragEvent Class**
 
@@ -86,6 +86,7 @@ Following example shows the functionality of a simple Drag & Drop using a **View
 | 5      | Run the application to launch Android emulator and verify the result of the changes done in the aplication. | 
 
 Following is the content of the modified main activity file **src/com.example.dragndropdemo/MainActivity.java**. This file can include each of the fundamental lifecycle methods.
+
 ```java
 package com.example.dragndropdemo;
  
@@ -121,7 +122,7 @@ public class MainActivity extends Activity{
          public boolean onLongClick(View v) {
             ClipData.Item item = new ClipData.Item((CharSequence)v.getTag());
  
-            String\[\] mimeTypes = {ClipDescription.MIMETYPE\_TEXT\_PLAIN};
+            String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
             ClipData dragData = new ClipData(v.getTag().toString(),
             mimeTypes, item);
  
@@ -144,32 +145,32 @@ public class MainActivity extends Activity{
          public boolean onDrag(View v,  DragEvent event){
          switch(event.getAction())                  
          {
-            case DragEvent.ACTION\_DRAG\_STARTED:
+            case DragEvent.ACTION_DRAG_STARTED:
                layoutParams = (RelativeLayout.LayoutParams)
                v.getLayoutParams();
-               Log.d(msg, "Action is DragEvent.ACTION\_DRAG\_STARTED");
+               Log.d(msg, "Action is DragEvent.ACTION_DRAG_STARTED");
                // Do nothing
                break;
-            case DragEvent.ACTION\_DRAG\_ENTERED:
-               Log.d(msg, "Action is DragEvent.ACTION\_DRAG\_ENTERED");
+            case DragEvent.ACTION_DRAG_ENTERED:
+               Log.d(msg, "Action is DragEvent.ACTION_DRAG_ENTERED");
                int x_cord = (int) event.getX();
                int y_cord = (int) event.getY(); 
                break;
-            case DragEvent.ACTION\_DRAG\_EXITED :
-               Log.d(msg, "Action is DragEvent.ACTION\_DRAG\_EXITED");
+            case DragEvent.ACTION_DRAG_EXITED :
+               Log.d(msg, "Action is DragEvent.ACTION_DRAG_EXITED");
                x_cord = (int) event.getX();
                y_cord = (int) event.getY();
                layoutParams.leftMargin = x_cord;
                layoutParams.topMargin = y_cord;
                v.setLayoutParams(layoutParams);
                break;
-            case DragEvent.ACTION\_DRAG\_LOCATION  :
-               Log.d(msg, "Action is DragEvent.ACTION\_DRAG\_LOCATION");
+            case DragEvent.ACTION_DRAG_LOCATION  :
+               Log.d(msg, "Action is DragEvent.ACTION_DRAG_LOCATION");
                x_cord = (int) event.getX();
                y_cord = (int) event.getY();
                break;
-            case DragEvent.ACTION\_DRAG\_ENDED   :
-               Log.d(msg, "Action is DragEvent.ACTION\_DRAG\_ENDED");
+            case DragEvent.ACTION_DRAG_ENDED   :
+               Log.d(msg, "Action is DragEvent.ACTION_DRAG_ENDED");
                // Do nothing
                break;
             case DragEvent.ACTION_DROP:
@@ -184,7 +185,9 @@ public class MainActivity extends Activity{
    }
 }
 ```
+
 Following will be the content of **res/layout/activity_main.xml** file:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -202,7 +205,9 @@ Following will be the content of **res/layout/activity_main.xml** file:
           
 </RelativeLayout>
 ```
+
 Following will be the content of **res/values/strings.xml** to define two new constants:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -211,9 +216,11 @@ Following will be the content of **res/values/strings.xml** to define two new co
     <string name="hello_world">Hello world!</string>
     <string name="drag_drop">Click on the image to drag and drop</string>
 </resources>
+```
 
 Following is the default content of **AndroidManifest.xml**:
 
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.guidemo"
@@ -242,6 +249,7 @@ Following is the default content of **AndroidManifest.xml**:
  
 </manifest>
 ```
+
 Let's try to run your **DragNDropDemo** application. I assume you had created your **AVD** while doing environment setup. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Eclipse installs the app on your AVD and starts it and if everything is fine with your setup and application, it will display following Emulator window:
 
 Now do long click on the displayed android logo and you will see that logo image moves a little after 1 seconds long click from its place, its the time when you should start dragging the image. You can drag it around the screen and drop it at a new location.
