@@ -42,7 +42,7 @@ Android has built-in support to add TO, SUBJECT, CC, TEXT etc. fields which can 
 
 Here is an example showing you how to assign extra data to your intent:
 ```java
-emailIntent.putExtra(Intent.EXTRA_EMAIL  , new String\[\]{"recipient@example.com"});
+emailIntent.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
 emailIntent.putExtra(Intent.EXTRA_TEXT   , "body of email");
 ```
@@ -56,7 +56,7 @@ To experiment with this example, you will need actual Mobile device equipped wit
 | Step        | Description           | 
 | ------------- |:-------------
 | 1      | You will use Eclipse IDE to create an Android application and name it as _SendEmailDemo_ under a package _com.example.sendemaildemo_. While creating this project, make sure you _Target SDK_ and _Compile With_ at the latest version of Android SDK to use higher levels of APIs. | 
-| 2      | Modify _src__/MainActivity.java_ file and add required code to take care of sending email. | 
+| 2      | Modify _src/MainActivity.java_ file and add required code to take care of sending email. | 
 | 3      | Modify layout XML file _res/layout/activity_main.xml_ add any GUI component if required. I'm adding a simple button to launch Email Client. | 
 | 4      | Modify _res/values/strings.xml_ to define required constant values | 
 | 5      | Modify _AndroidManifest.xml_ as shown below |   
@@ -97,8 +97,8 @@ public class MainActivity extends Activity {
    protected void sendEmail() {
       Log.i("Send email", "");
  
-      String\[\] TO = {"amrood.admin@gmail.com"};
-      String\[\] CC = {"mcmohd@gmail.com"};
+      String[] TO = {"amrood.admin@gmail.com"};
+      String[] CC = {"mcmohd@gmail.com"};
       Intent emailIntent = new Intent(Intent.ACTION_SEND);
       emailIntent.setData(Uri.parse("mailto:"));
       emailIntent.setType("text/plain");
@@ -126,6 +126,7 @@ public class MainActivity extends Activity {
    }
 }
 ```
+
 Following will be the content of **res/layout/activity_main.xml** file:
 
 ```xml
@@ -141,6 +142,7 @@ Following will be the content of **res/layout/activity_main.xml** file:
    
 </LinearLayout>
 ```
+
 Following will be the content of **res/values/strings.xml** to define two new constants:
 
 ```xml
@@ -153,9 +155,11 @@ Following will be the content of **res/values/strings.xml** to define two new co
     <string name="compose_email">Compose Email</string>
  
 </resources>
+```
 
 Following is the default content of **AndroidManifest.xml**:
 
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sendemaildemo"
@@ -183,6 +187,7 @@ Following is the default content of **AndroidManifest.xml**:
     </application>
 </manifest>
 ```
+
 Let's try to run your **SendEmailDemo** application. I assume you have connected your actual Android Mobile device with your computer. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Before starting your application, Eclipse will display following window to select an option where you want to run your Android application.
 
 Select your mobile device as an option and then check your mobile device which will display following screen:
