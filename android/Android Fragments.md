@@ -107,11 +107,11 @@ public class MainActivity extends Activity {
       /* Check the device orientation and act accordingly */
       if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
          /* Landscape mode of the device */
-         LM\_Fragment ls\_fragment = new LM_Fragment();
+         LM_Fragment ls_fragment = new LM_Fragment();
          fragmentTransaction.replace(android.R.id.content, ls_fragment);
       }else{
          /* Portrait mode of the device */
-         PM\_Fragment pm\_fragment = new PM_Fragment();
+         PM_Fragment pm_fragment = new PM_Fragment();
          fragmentTransaction.replace(android.R.id.content, pm_fragment);
       }
       fragmentTransaction.commit();
@@ -119,9 +119,11 @@ public class MainActivity extends Activity {
    
 }
 ```
+
 Create two fragment files **LM_Fragement.java** and **PM_Fragment.java** under _com.example.mycontentprovider_ package.
 
 Following is the content of **LM_Fragement.java** file:
+
 
 ```java
 package com.example.myfragments;      
@@ -142,9 +144,11 @@ public class LM_Fragment extends Fragment{
       R.layout.lm_fragment, container, false);
    }
 }
+```
 
 Following is the content of **PM_Fragement.java** file:
 
+```java
 package com.example.myfragments;
  
 import android.app.Fragment;
@@ -159,14 +163,15 @@ public class PM_Fragment extends Fragment{
    public View onCreateView(LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
       /* Inflate the layout for this fragment */
-      return inflater.inflate(
-      R.layout.pm_fragment, container, false);
+      return inflater.inflate(R.layout.pm_fragment, container, false);
    }
 }
 ```
+
 Create two layout files **lm_fragement.xml** and **pm_fragment.xml** under _res/layout_ directory.
 
 Following is the content of **lm_fragement.xml** file:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
    <LinearLayout
@@ -183,12 +188,14 @@ Following is the content of **lm_fragement.xml** file:
    android:textColor="#000000"
    android:textSize="20px" />
  
-<!\-\- More GUI components go here  -->
+<!-- More GUI components go here  -->
  
 </LinearLayout>
+```
 
 Following is the content of **pm_fragment.xml** file:
 
+```xml
 <?xml version="1.0" encoding="utf-8"?>
    <LinearLayout
    xmlns:android="http://schemas.android.com/apk/res/android"
@@ -208,6 +215,7 @@ Following is the content of **pm_fragment.xml** file:
  
 </LinearLayout>
 ```
+
 Following will be the content of **res/layout/activity_main.xml** file which includes your fragments:
 
 ```xml
@@ -234,6 +242,7 @@ Following will be the content of **res/layout/activity_main.xml** file which inc
  
 </LinearLayout>
 ```
+
 Make sure you have following content of **res/values/strings.xml** file:
 
 ```xml
@@ -250,6 +259,7 @@ Make sure you have following content of **res/values/strings.xml** file:
  
 </resources>
 ```
+
 Let's try to run our modified **MyFragments** application we just created. I assume you had created your **AVD** while doing environment setup. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Eclipse installs the app on your AVD and starts it and if everything is fine with your setup and application, it will display Emulator window where you will click on Menu button to see the following window. Be patience because it may take sometime based on your computer speed:
 
 To change the mode of the emulator screen, let's do the following
