@@ -4,7 +4,6 @@
 There are following two ways to send SMS using Android device:
 
 -   Using SmsManager to send SMS
-
 -   Using Built-in Intent to send SMS
 
 **Using SmsManager to send SMS**
@@ -44,7 +43,6 @@ in SmsManager class. These methods are listed below:
 |          | Send a text based SMS.                                                                                                                                                                                                                        |
 
  
-
 ### **Example**
 
 Following example shows you in practical how to use SmsManager object to send an
@@ -53,7 +51,6 @@ SMS to the given mobile number.
 To experiment with this example, you will need actual Mobile device equipped
 with latest Android OS, otherwise you will have to struggle with emulator which
 may not work.
-
  
 
 | **Step** | **Description**                                                                                                                                                                                                                                                                 |
@@ -68,8 +65,8 @@ may not work.
  
 
 Following is the content of the modified main activity file
-**src/com.example.sendsmsdemo/MainActivity.java**.
 
+**src/com.example.sendsmsdemo/MainActivity.java**.
  
 
 ```java
@@ -173,6 +170,7 @@ android:orientation="vertical" >
  
 </LinearLayout>
 ```
+
 Following will be the content of **res/values/strings.xml** to define two new
 constants:
 
@@ -222,7 +220,7 @@ You will use **ACTION_VIEW** action to launch an SMS client installed on your
 Android device. Following is simple syntax to create an intent with ACTION_VIEW
 action
 
-```xml
+```java
 Intent smsIntent = new Intent(Intent.ACTION_VIEW);
 ```
 
@@ -233,7 +231,7 @@ To send an SMS you need to specify **smsto:** as URI using setData() method and
 data type will be to **vnd.android-dir/mms-sms** using setType() method as
 follows:
 
-```xml
+```java
 smsIntent.setData(Uri.parse("smsto:"));
 smsIntent.setType("vnd.android-dir/mms-sms");
 ```
@@ -244,7 +242,7 @@ smsIntent.setType("vnd.android-dir/mms-sms");
 Android has built-in support to add phone number and text message to send an SMS
 as follows:
 
-```xml
+```java
 smsIntent.putExtra("address"  , new String("0123456789;3393993300"));
 smsIntent.putExtra("sms_body"  , "Test SMS to Angilla");
 ```
