@@ -17,18 +17,21 @@ text view and a button looks like this:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   android:layout_width="fill_parent"
-   android:layout_height="fill_parent"
-   android:orientation="vertical" >
-  
-   <TextView android:id="@+id/text"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="I am a TextView" />
-   <Button android:id="@+id/button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="I am a Button" />
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I am a TextView" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I am a Button" />
 </LinearLayout>
 ```
 
@@ -37,7 +40,6 @@ text view and a button looks like this:
 
 There are number of UI controls provided by Android that allow you to build the
 graphical user interface for your app.
-
  
 
 | **S.N.** | **UI Control & Description**                                                                                                                                                      |
@@ -69,7 +71,6 @@ graphical user interface for your app.
 | 13       | DatePicker                                                                                                                                                                        |
 |          | The DatePicker view enables users to select a date of the day.                                                                                                                    |
 
- 
 
 **Create UI Controls**
 ----------------------
@@ -102,6 +103,6 @@ layout file and assign it a unique ID as follows:
 Then finally create an instance of the Control object and capture it from the
 layout, use the following:
 
-```xml
+```java
 TextView myText = (TextView) findViewById(R.id.text_id);
 ```
