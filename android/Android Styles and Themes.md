@@ -8,6 +8,7 @@ application look and feel. A style can specify properties such as height,
 padding, font color, font size, background color, and much more.
 
 You can specify these attributes in Layout file as follows:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -27,13 +28,9 @@ You can specify these attributes in Layout file as follows:
 </LinearLayout>
 ```
 
- 
-
 But this way we need to define style attributes for every attribute separately
 which is not good for source code maintenance point of view. So we work with
 styles by defining them in separate file as explained below.
-
- 
 
 **Defining Styles**
 -------------------
@@ -48,8 +45,6 @@ You can define multiple styles per file using **\<style\>** tag but each style
 will have its name that uniquely identifies the style. Android style attributes
 are set using **\<item\>** tag as shown below:
 
- 
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -63,12 +58,9 @@ are set using **\<item\>** tag as shown below:
    </style>
 </resources>
 ```
- 
 
 The value for the \<item\> can be a keyword string, a hex color, a reference to
 another resource type, or other value depending on the style property.
-
- 
 
 **Using Styles**
 ----------------
@@ -89,14 +81,10 @@ Once your style is defined, you can use it in your XML Layout file using
    android:text="@string/hello_world" />
  
 </LinearLayout>
-```
-
- 
+``` 
 
 To understand the concept related to Android Style, you can check Style Demo
 Example.
-
- 
 
 **Style Inheritance**
 ---------------------
@@ -109,8 +97,6 @@ Its simple, to create a new style **LargeFont** that inherits the
 **CustomFontStyle** style defined above, but make the font size big, you can
 author the new style like this:
 
- 
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -118,9 +104,7 @@ author the new style like this:
       <item name="android:textSize">20ps</item>
    </style>
 </resources>
-```
-
- 
+``` 
 
 You can reference this new style as **\@style/CustomFontStyle.LargeFont** in
 your XML Layout file. You can continue inheriting like this as many times as
@@ -154,6 +138,7 @@ must use the **parent** attribute as shown below:
    </style>
 </resources>
 ```
+
 Hope you understood the concept of Style, so now let's try to understand what is
 a **Theme**. A theme is nothing but an Android style applied to an entire
 Activity or application, rather than an individual View.
