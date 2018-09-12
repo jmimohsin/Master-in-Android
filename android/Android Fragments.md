@@ -72,7 +72,7 @@ This example will explain you how to create your own _Fragments_. Here we will c
 | 1     | You will use Eclipse IDE to create an Android application and name it as _MyFragments_ under a package _com.example.myfragments_, with blank Activity. | 
 | 2      | Modify main activity file _MainActivity.java_ as shown below in the code. Here we will check orientation of the device and accordingly we will switch between different fragments. | 
 |3      | Create a two java files _PM_Fragment.java_ and _LM_Fragement.java_ under the package _com.example.myfragments_ to define your fragments and associated methods. | 
-| 4      | Create layouts files _res/layout/lm_fragment.xml_ and _res/layout/pm_fragment.xml_ and define your layouts for both the fragments.< | 
+| 4      | Create layouts files _res/layout/lm_fragment.xml_ and _res/layout/pm_fragment.xml_ and define your layouts for both the fragments. | 
 | 5      | Modify the detault content of _res/layout/activity_main.xml_ file to include both the fragments. | 
 | 6      | Define required constants in _res/values/strings.xml_ file | 
 | 7      | Run the application to launch Android emulator and verify the result of the changes done in the aplication. | 
@@ -140,8 +140,7 @@ public class LM_Fragment extends Fragment{
    public View onCreateView(LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
       /* Inflate the layout for this fragment */
-      return inflater.inflate(
-      R.layout.lm_fragment, container, false);
+      return inflater.inflate(R.layout.lm_fragment, container, false);
    }
 }
 ```
@@ -252,8 +251,7 @@ Make sure you have following content of **res/values/strings.xml** file:
     <string name="app_name">MyFragments</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="landscape_message">This is Landscape mode fragment
-    </string>
+    <string name="landscape_message">This is Landscape mode fragment</string>
     <string name="portrait_message">This is Portrait mode fragment
     </string>
  
@@ -264,9 +262,9 @@ Let's try to run our modified **MyFragments** application we just created. I ass
 
 To change the mode of the emulator screen, let's do the following
 
-*   **fn+control+F11** on Mac to change the landscape to portrait and vice versa.
-*   **ctrl+F11** on Windows.
-*   **ctrl+F11** on Linux.
+*   **Fn+control+F11** on Mac to change the landscape to portrait and vice versa.
+*   **Ctrl+F11** on Windows.
+*   **Ctrl+F11** on Linux.
 
 Once you changed the mode, you will be able to see the GUI which you have implemented for landscape mode as below:
 
