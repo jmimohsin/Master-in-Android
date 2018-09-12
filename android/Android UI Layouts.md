@@ -24,20 +24,24 @@ LinearLayout:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical" >
-        <TextView android:id="@+id/text"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="This is a TextView" />
-        <Button android:id="@+id/button"
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="This is a Button" />
-       
-        <!-- More GUI components go here  -->
-       
+
+    <!-- More GUI components go here  -->
+
 </LinearLayout>
 ```
 
@@ -58,8 +62,6 @@ public void onCreate(Bundle savedInstanceState) {
 There are number of Layouts provided by Android which you will use in almost all
 the Android applications to provide different view, look and feel.
 
- 
-
 | **S.N.** | **Layout & Description**                                                                                              |
 |----------|-----------------------------------------------------------------------------------------------------------------------|
 | 1        | Linear Layout                                                                                                         |
@@ -76,8 +78,6 @@ the Android applications to provide different view, look and feel.
 |          | ListView is a view group that displays a list of scrollable items.                                                    |
 | 7        | Grid View                                                                                                             |
 |          | GridView is a ViewGroup that displays items in a two-dimensional, scrollable grid.                                    |
-
- 
 
 **Layout Attributes**
 ---------------------
@@ -107,7 +107,6 @@ attributes and will be applied to all the layouts:
 | android:paddingTop          | This is the top padding filled for the layout.                                            |
 | android:paddingBottom       | This is the bottom padding filled for the layout.                                         |
 
- 
 
 Here width and height are the dimension of the layout/view which can be
 specified in terms of dp (Density-independent Pixels), sp ( Scale-independent
@@ -125,8 +124,6 @@ will use one of these constants to set the width or height:
 
 Gravity attribute plays important role in positioning the view object and it can
 take one or more (separated by '\|') of the following constant values.
-
- 
 
 | **Constant**      | **Value**  | **Description**                                                                                                                                                                                                                                                                              |
 |-------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -146,7 +143,6 @@ take one or more (separated by '\|') of the following constant values.
 | end               | 0x00800005 | Push object to the end of its container, not changing its size.                                                                                                                                                                                                                              |
 
  
-
 **View Identification**
 
 A view object may have a unique ID assigned to it which will identify the View
@@ -166,6 +162,6 @@ Following is a brief description of \@ and + signs:
     created and added to our resources. To create an instance of the view object
     and capture it from the layout, use the following:
 
-```xml
+```java
 Button myButton = (Button) findViewById(R.id.my_button);
 ```
