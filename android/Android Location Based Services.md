@@ -117,7 +117,7 @@ Before you proceed to have location support in your Android Applications, you ne
 
 | Step        | Description| 
 | ------------- |:------------- 
-| 1      | You will use Eclipse IDE to create an Android application and name it as _LBSDemo_/i> under a package com.example.lbsdemo. While creating this project, make sure you Target SDK and Compile With at the latest version of Android SDK to use higher levels of APIs._ | 
+| 1      | You will use Eclipse IDE to create an Android application and name it as _LBSDemo_ under a package com.example.lbsdemo. While creating this project, make sure you Target SDK and Compile With at the latest version of Android SDK to use higher levels of APIs. | 
 | 2      | Add **Google Play Service** library in your project by following simple steps given below. | 
 | 3      | Modify _src__/MainActivity.java_ file and add required code as shown below to take care of getting current location and its equivalent address. |
 | 4      | Modify layout XML file _res/layout/activity_main.xml_ to add all GUI components which include three buttons and two text views to show location/address. |
